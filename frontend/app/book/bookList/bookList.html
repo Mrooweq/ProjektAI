@@ -1,0 +1,32 @@
+
+<div class="container main-center">
+    <div class="panel-group" id="accordion" >
+        <div ng-repeat="book in books | filter:search" class="panel panel-primary" >
+            <div class="panel-heading " data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{book.id}}" >
+                <h4 class="panel-title" >
+                    <div class="row">
+                        <div class="col-sm-6 ">
+                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{book.id}}" class="bookName" style="vertical-align:middle">{{book.author}} - {{book.title}}</a>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <label >Price: {{book.price}}</label>
+                        </div>
+                        <div class="col-sm-4 ">
+                            <button ng-click="addToCart(book.id)" ng-show = "book.numberOfAvailablePieces > 0" class="btn btn-primary btn-lg">Add to cart</button>
+                            <label ng-show = "book.numberOfAvailablePieces == 0">Sorry, product not avaiable</label>
+                        </div>
+                    </div>
+                </h4>
+
+                </h4>
+            </div>
+            <div id="collapse{{book.id}}" class="collapse">
+                <div class="panel-body">
+                    <book-details-dir book-id-param={{book.id}}></book-details-dir>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

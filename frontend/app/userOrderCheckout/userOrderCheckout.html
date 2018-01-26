@@ -1,0 +1,43 @@
+
+
+
+<div class="container main-center">
+    <h1>Order checkout</h1>
+    <table class="table bookDetails">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price for book</th>
+            <th>Quantity</th>
+            <th style='vertical-align:middle'>Price</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr ng-repeat="boughtItem in boughtItems.invoicePositionDtoList" >
+            <td>{{boughtItem.title}}</td>
+            <td>{{boughtItem.priceOfPosition}}</td>
+            <td>{{boughtItem.quantity}}</td>
+            <td>{{boughtItem.priceOfPosition * boughtItem.quantity}}</td>
+        </tr>
+        <tr >
+            <td>Invoice Date {{boughtItems.invoiceDate | date: 'dd-MM-yyyy'}}</td>
+            <td></td>
+            <td class="text-right " style="vertical-align:middle">Sum: </td>
+            <td style="vertical-align:middle">{{ boughtItems.invoiceValue }}</td>
+            <td></td>
+        </tr>
+        <tr >
+
+        </tr>
+        <tr >
+            <td> <a href="#!/bookList" class="btn btn-primary btn-lg">Continue shopping</a></td>
+            <td></td>
+            <td> </td>
+            <td> </td>
+            <td></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>

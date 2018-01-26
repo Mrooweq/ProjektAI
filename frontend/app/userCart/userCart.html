@@ -1,0 +1,41 @@
+
+<div class="container main-center">
+    <table class="table bookDetails">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price for book</th>
+            <th>Quantity</th>
+            <th style='vertical-align:middle'>Price</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr ng-repeat="cartItem in cartItems" >
+            <td> {{cartItem.title}}</td>
+            <td>{{cartItem.price}}</td>
+            <td><input  type="number" min="1" step="1" ng-model="cartItem.quantity" ng-change="updateQuantity(cartItem.bookId, cartItem.quantity)" /></td>
+            <td>{{cartItem.price * cartItem.quantity}}</td>
+            <td><a href="#!/userCart" ng-click="deleteFromCart(cartItem.bookId)">Usuń z koszyka</a></td>
+        </tr>
+        <tr >
+            <td> </td>
+            <td></td>
+            <td class="text-right " style="vertical-align:middle">Sum: </td>
+            <td style="vertical-align:middle">{{ totalSum }}</td>
+            <td><button ng-click="buy()" class="btn btn-primary btn-lg btn-block">Buy</button></td>
+        </tr>
+        <tr >
+
+        </tr>
+        <tr >
+            <td> <a href="#!/bookList" class="btn btn-primary btn-lg">Continue shopping</a></td>
+            <td></td>
+            <td> </td>
+            <td> </td>
+            <td></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>

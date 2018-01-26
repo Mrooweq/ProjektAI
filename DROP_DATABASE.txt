@@ -1,0 +1,15 @@
+drop table INVOICE_POSITION;
+       drop table INVOICE;
+       drop table ADDRESS;
+          drop table CART;
+       drop table USERS;
+       drop table STOCK;
+       drop table BOOK;
+       drop table CATEGORY;
+
+       drop SEQUENCE seq_USERS;
+       drop SEQUENCE seq_INVOICE;
+       drop SEQUENCE seq_CATEGORY;
+       drop SEQUENCE seq_BOOK;
+
+       commit;

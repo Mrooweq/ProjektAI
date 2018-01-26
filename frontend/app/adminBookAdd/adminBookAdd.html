@@ -1,0 +1,133 @@
+
+<div class="container main-center">
+    <h1 >Add book</h1>
+    <div class="col-lg-12  ">
+        <div class="row">
+            <form name="addBookForm">
+                <div class="col-sm-12">
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' :addBookForm.title.$invalid && !addBookForm.title.$pristine }">
+                        <label>Title</label>
+                        <input class="form-control" type="text" ng-model="book.title" name="title" required ng-maxlength="50" placeholder="Title"/>
+                        <span class="help-block"
+                              ng-show="addBookForm.title.$dirty">
+                            <span ng-show="addBookForm.title.$error.required">Title is required.</span>
+                        <span ng-show="addBookForm.title.$error.maxlength" class="help-block">Title is too long.</span>
+                        </span>
+
+                    </div>
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' : addBookForm.author.$invalid && !addBookForm.author.$pristine }">
+                        <label>Author</label>
+                        <input ng-pattern="rexAuthor"class="form-control" type="text" ng-model="book.author" name="author" required ng-maxlength="50"  placeholder="Author"/>
+                        <span class="help-block"
+                              ng-show="addBookForm.author.$dirty && addBookForm.author.$invalid">
+  	<span ng-show="addBookForm.author.$error.required">Author is required.</span>
+  	<span ng-show="addBookForm.author.$invalid && !addBookForm.author.$error.required">Author is invalid.</span>
+            <span ng-show="addBookForm.author.$error.maxlength" class="help-block">Author is too long.</span>
+                        </span>
+                    </div>
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' : addBookForm.price.$invalid && !addBookForm.price.$pristine }">
+                        <label>Price</label>
+                        <input ng-pattern="rexPrice"class="form-control" type="number" ng-model="book.price" name="price" required  ng-maxlength="10" placeholder="Price"/>
+                        <span class="help-block"
+                              ng-show="addBookForm.price.$dirty && addBookForm.price.$invalid">
+  	<span ng-show="addBookForm.price.$error.required">Price is required.</span>
+  	<span ng-show="addBookForm.price.$invalid && !addBookForm.price.$error.required">Price is invalid.</span>
+            <span ng-show="addBookForm.price.$error.maxlength" class="help-block">Price is too long.</span>
+                        </span>
+                    </div>
+                    <div class=" form-group">
+                    <label>Category</label>
+                    <select class="form-control"   ng-model="book.category"required>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Lyrics">Lyrics</option>
+                    </select>
+                </div>
+                    <div class=" form-group">
+                        <label>Type Of Cover</label>
+                        <select class="form-control"  ng-model="book.typeOfCover" required>
+                            <option value="HARD">Hard</option>
+                            <option value="SOFT">soft</option>
+                        </select>
+                    </div>
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' : addBookForm.isbn.$invalid && !addBookForm.isbn.$pristine }">
+                        <label>ISBN</label>
+                        <input ng-pattern="rexISBN"class="form-control" type="text" ng-model="book.isbn" name="isbn" required ng-minlength="3" ng-maxlength="13" placeholder="ISBN"/>
+                        <span class="help-block"
+                              ng-show="addBookForm.isbn.$dirty && addBookForm.isbn.$invalid">
+  	<span ng-show="addBookForm.isbn.$error.required">ISBN is required.</span>
+  	<span ng-show="addBookForm.isbn.$invalid && !addBookForm.isbn.$error.required">ISBN is invalid.</span>
+            <span ng-show="addBookForm.isbn.$error.minlength" class="help-block">ISBN is too short.</span>
+            <span ng-show="addBookForm.isbn.$error.maxlength" class="help-block">ISBN is too long.</span>
+                        </span>
+                    </div>
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' : addBookForm.numberOfAvailablePieces.$invalid && !addBookForm.numberOfAvailablePieces.$pristine }">
+                        <label>Number Of Available Pieces</label>
+                        <input ng-pattern="rexNumberOfAvailablePieces"class="form-control" type="number" ng-model="book.numberOfAvailablePieces" name="numberOfAvailablePieces" required ng-maxlength="5" placeholder="Number Of Available Pieces" />
+                        <span class="help-block"
+                              ng-show="addBookForm.numberOfAvailablePieces.$dirty && addBookForm.numberOfAvailablePieces.$invalid">
+  	<span ng-show="addBookForm.numberOfAvailablePieces.$error.required">Number Of Available Pieces is required.</span>
+  	<span ng-show="addBookForm.numberOfAvailablePieces.$invalid && !addBookForm.numberOfAvailablePieces.$error.required">Number Of Available Pieces is invalid.</span>
+            <span ng-show="addBookForm.numberOfAvailablePieces.$error.maxlength" class="help-block">Number Of Available Pieces is too long.</span>
+                        </span>
+                    </div>
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' : addBookForm.placeOfPublish.$invalid && !addBookForm.placeOfPublish.$pristine }">
+                        <label>Place Of Publish</label>
+                        <input ng-pattern="rexPlaceOfPublish"class="form-control" type="text" ng-model="book.placeOfPublish" name="placeOfPublish" required placeholder="Place Of Publish"/>
+                        <span class="help-block"
+                              ng-show="addBookForm.placeOfPublish.$dirty && addBookForm.placeOfPublish.$invalid">
+  	<span ng-show="addBookForm.placeOfPublish.$error.required">Place Of Publish is required.</span>
+  	<span ng-show="addBookForm.placeOfPublish.$invalid && !addBookForm.placeOfPublish.$error.required">Place Of Publish is invalid.</span>
+                        </span>
+                    </div>
+
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' : addBookForm.publisher.$invalid && !addBookForm.publisher.$pristine }">
+                        <label>Publisher</label>
+                        <input ng-pattern="rexPublisher"class="form-control" type="text" ng-model="book.publisher" name="publisher" required  ng-maxlength="50" placeholder="Publisher"/>
+                        <span class="help-block"
+                              ng-show="addBookForm.publisher.$dirty && addBookForm.publisher.$invalid">
+  	<span ng-show="addBookForm.publisher.$error.required">Publisher is required.</span>
+  	<span ng-show="addBookForm.publisher.$invalid && !addBookForm.publisher.$error.required">Publisher is invalid.</span>
+            <span ng-show="addBookForm.publisher.$error.maxlength" class="help-block">Publisher is too long.</span>
+                        </span>
+                    </div>
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' : addBookForm.yearOfPublish.$invalid && !addBookForm.yearOfPublish.$pristine }">
+                        <label>Year Of Publish</label>
+                        <input ng-pattern="rexYearOfPublish"class="form-control" type="number" ng-model="book.yearOfPublish" name="yearOfPublish" required  ng-minlength="4" ng-maxlength="4" placeholder="1900-2099"/>
+                        <span class="help-block"
+                              ng-show="addBookForm.yearOfPublish.$dirty && addBookForm.yearOfPublish.$invalid">
+  	<span ng-show="addBookForm.yearOfPublish.$error.required">Year Of Publish is required.</span>
+  	<span ng-show="addBookForm.yearOfPublish.$invalid && !addBookForm.yearOfPublish.$error.required">Year Of Publish is invalid.</span>
+            <span ng-show="addBookForm.yearOfPublish.$error.minlength" class="help-block">Year Of Publish should be 4 digits long.</span>
+            <span ng-show="addBookForm.yearOfPublish.$error.maxlength" class="help-block">Year Of Publish should be 4 digits long.</span>
+                        </span>
+                    </div>
+
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' : addBookForm.description.$invalid && !addBookForm.description.$pristine }">
+                        <label>Description</label>
+                        <textarea class="form-control" type="text" ng-model="book.description" name="description" required ng-maxlength="256" ></textarea>
+                        <span class="help-block"
+                              ng-show="addBookForm.description.$dirty">
+  	<span ng-show="addBookForm.description.$error.required">Description is required.</span>
+            <span ng-show="addBookForm.description.$error.maxlength" class="help-block">Description is too long.</span>
+                        </span>
+                    </div>
+                    <div class="col-md- text-center">
+                        <button  ng-show="addBookForm.$invalid ||  addBookForm.$pristine" type="button" class="btn btn-primary btn-block btn-lg disabled">Submit</button>
+                        <button ng-click="addBook()" ng-show="addBookForm.$dirty && addBookForm.$valid " type="button" class="btn btn-primary btn-block btn-lg ">Submit</button>
+                    </div>
+                    </br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>Book Store</h1>
+    </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">Bookstore</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <view-main-menu></view-main-menu>
+            <view-main-menu-user></view-main-menu-user>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid text-center bodyBackground">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+          <books-search-dir></books-search-dir>
+        </div>
+        <div class="col-sm-8 text-left">
+            <div class="container">
+            <div ng-view></div>
+        </div>
+        </div>
+    </div>
+</div>
+

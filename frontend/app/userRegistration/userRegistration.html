@@ -1,0 +1,131 @@
+
+<div class="container main-center">
+    <h1 >Registration Form</h1>
+    <div class="col-lg-12  ">
+        <div class="row">
+            <form name="registerInForm">
+                <div class="col-sm-12">
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' : (registerInForm.username.$invalid && !registerInForm.username.$pristine) || usernameBusy }">
+                        <label>Username </label>
+                        <input class="form-control" type="text" ng-model="userReg.username" name="username"
+                               ng-pattern="rexUsername" required ng-minlength="3" ng-maxlength="20" />
+                        <span class="help-block"
+                              ng-show="registerInForm.username.$dirty && registerInForm.username.$invalid">
+  	<span ng-show="registerInForm.username.$error.required">Username is required.</span>
+  	<span ng-show="registerInForm.username.$invalid && !registerInForm.username.$error.required">Username is invalid.</span>
+  	<span ng-show="registerInForm.username.$error.minlength  && !registerInForm.username.$error.required">Username is too short.</span>
+            <span ng-show="registerInForm.username.$error.maxlength" class="help-block">Username is too long.</span>
+                        </span>
+                        <span class="help-block" ng-show="usernameBusy" class="help-block">Username not available.</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group"
+                             ng-class="{ 'has-error' : registerInForm.password.$invalid && !registerInForm.password.$pristine }">
+                            <label>Password</label>
+                            <input class="form-control" type="password" ng-model="userReg.password" name="password"
+                                   ng-pattern="rexPassword" required ng-minlength="6" ng-maxlength="20"/>
+                            <span class="help-block"
+                                  ng-show="registerInForm.password.$dirty && registerInForm.password.$invalid">
+  	<span ng-show="registerInForm.password.$error.required">Password is required.</span>
+  	<span ng-show="registerInForm.password.$invalid && !registerInForm.password.$error.required">Password is invalid.</span>
+  	<span ng-show="registerInForm.password.$error.minlength  && !registerInForm.password.$error.required">Username is too short. </span>
+            <span ng-show="registerInForm.password.$error.maxlength"
+                  class="help-block">Username is too long.</span></span>
+                        </div>
+
+                        <div class="col-sm-6 form-group"
+                             ng-class="{ 'has-error' : badPasswords && !registerInForm.passwordRepeat.$pristine }">
+                            <label>Repeat password</label>
+                            <input class="form-control" type="password" ng-model="userReg.passwordRepeat"
+                                   name="passwordRepeat" ng-change="comparePass()" required/>
+                            <span class="help-block" ng-show="registerInForm.passwordRepeat.$dirty">
+  	<span ng-show="registerInForm.passwordRepeat.$error.required">Password confirmation is required.</span>
+  	<span ng-show="badPasswords && !registerInForm.passwordRepeat.$error.required">Passwords have to be the same.</span>
+  	</span>
+                        </div>
+                    </div>
+                    <div class=" form-group"
+                         ng-class="{ 'has-error' : (registerInForm.email.$invalid && !registerInForm.email.$pristine) || emailBusy}">
+                        <label>Email</label>
+                        <input class="form-control" ng-model="userReg.email" name="email" ng-pattern="rexEmail"
+                               required />
+                        <span class="help-block" ng-show="registerInForm.email.$dirty && registerInForm.email.$invalid">
+  	<span ng-show="registerInForm.email.$error.required">Email is required.</span>
+  	<span ng-show="registerInForm.email.$invalid && !registerInForm.email.$error.required">Email is invalid.</span>
+  	</span>
+                        <span class="help-block" ng-show="emailBusy" class="help-block">Email already registered.</span>
+                    </div>
+                </br>
+                    <div class="row">
+                        <div class="col-sm-6 form-group"
+                             ng-class="{ 'has-error' : registerInForm.firstname.$invalid && !registerInForm.firstname.$pristine }">
+                            <label>First Name</label>
+                            <input class="form-control" ng-model="userReg.firstname" name="firstname"
+                                   ng-pattern="rexFirstName" required/>
+                            <span class="help-block"
+                                  ng-show="registerInForm.firstname.$dirty && registerInForm.firstname.$invalid">
+                                <span ng-show="registerInForm.firstname.$error.required && !registerInForm.firstname.$pristine">Firstname is required.</span>
+                                <span ng-show="registerInForm.firstname.$invalid && !registerInForm.firstname.$error.required">First name is invalid.</span>
+
+                            </span>
+                        </div>
+                        <div class="col-sm-6 form-group"
+                             ng-class="{ 'has-error' : registerInForm.lastname.$invalid && !registerInForm.lastname.$pristine }">
+                            <label>Last name</label>
+                            <input class="form-control" ng-model="userReg.lastname" name="lastname" ng-pattern="rexLastName" required/>
+                            <span class="help-block"
+                                  ng-show="registerInForm.lastname.$dirty && registerInForm.lastname.$invalid">
+  	<span ng-show="registerInForm.lastname.$error.required">Lastname is required.</span>
+  	<span ng-show="registerInForm.lastname.$invalid && !registerInForm.lastname.$error.required">Lastname is invalid.</span>
+  	</span>
+                        </div>
+                    </div>
+                </br>
+                   <div class="row">
+                        <div class="col-sm-4 form-group" ng-class="{ 'has-error' : registerInForm.city.$invalid && !registerInForm.city.$pristine }">
+                            <label>City</label>
+                            <input class="form-control" ng-model="userReg.city" name="city" ng-pattern="rexCity" required/>
+                            <span class="help-block" ng-show="registerInForm.city.$dirty && registerInForm.city.$invalid">
+  	<span ng-show="registerInForm.city.$error.required">Lastname is required.</span>
+  	<span ng-show="registerInForm.city.$invalid && !registerInForm.city.$error.required">Lastname is invalid.</span>
+  	</span>
+                        </div>
+                        <div class="col-sm-4 form-group" ng-class="{ 'has-error' : registerInForm.street.$invalid && !registerInForm.street.$pristine }">
+                            <label>Street</label>
+                            <input class="form-control" ng-model="userReg.street" name="street" ng-pattern="rexStreet" required/>
+                            <span class="help-block" ng-show="registerInForm.street.$dirty && registerInForm.street.$invalid">
+  	<span ng-show="registerInForm.street.$error.required">Street is required.</span>
+  	<span ng-show="registerInForm.street.$invalid && !registerInForm.street.$error.required">Street is invalid.</span>
+  	</span>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group" ng-class="{ 'has-error' : registerInForm.houseNumber.$invalid && !registerInForm.houseNumber.$pristine }">
+                        <label>House Number</label>
+                        <input class="form-control" ng-model="userReg.houseNumber" name="houseNumber" ng-pattern="rexHouseNumber" required/>
+                        <span class="help-block" ng-show="registerInForm.houseNumber.$dirty && registerInForm.houseNumber.$invalid">
+  	<span ng-show="registerInForm.houseNumber.$error.required">House Number is required.</span>
+  	<span ng-show="registerInForm.houseNumber.$invalid && !registerInForm.houseNumber.$error.required">House Number is invalid.</span>
+  	</span>
+                    </div>
+                    <div class="col-sm-4 form-group" ng-class="{ 'has-error' : registerInForm.postNumber.$invalid && !registerInForm.postNumber.$pristine }">
+                        <label>Post Number</label>
+                        <input class="form-control" ng-model="userReg.postNumber" name="postNumber" ng-pattern="rexPostNumber" required/>
+                        <span class="help-block" ng-show="registerInForm.postNumber.$dirty && registerInForm.postNumber.$invalid">
+  	<span ng-show="registerInForm.postNumber.$error.required">Post Number is required.</span>
+  	<span ng-show="registerInForm.postNumber.$invalid && !registerInForm.postNumber.$error.required">Post Number is invalid.</span>
+  	</span>
+                    </div>
+                </div>
+                <div class="col-md- text-center">
+                <button  ng-show="registerInForm.$invalid || badPasswords|| registerInForm.$pristine" type="button" class="btn btn-primary btn-block btn-lg disabled">Submit</button>
+                <button ng-click="registerIn()" ng-show="registerInForm.$dirty && registerInForm.$valid && !badPasswords " type="button" class="btn btn-primary btn-block btn-lg ">Submit</button>
+                </div>
+                    </br>
+                    Already have an account? <a href="#!/userLogIn">Log in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

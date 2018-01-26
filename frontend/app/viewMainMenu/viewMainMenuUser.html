@@ -1,0 +1,7 @@
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="#!/userLogIn" ng-hide="userLoggedIn"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
+    <li><a href="#!/userRegistration" ng-hide="userLoggedIn">></span> Sign In</a></li>
+    <li><a href="" ng-show="userLoggedIn"><span class="glyphicon glyphicon glyphicon-user"></span> Hello {{userName}}</a></li>
+    <li><a href="#!/userCart" ng-show="userLoggedIn"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+    <li><a href="#" ng-click="logOut()" ng-show="userLoggedIn"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+</ul>

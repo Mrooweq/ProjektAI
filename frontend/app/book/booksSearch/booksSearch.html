@@ -1,0 +1,11 @@
+
+       <p> Search:</p>
+        <input class="form-control" ng-model="search.$" /><br/>
+
+       <p>Category:</p>
+        <select  class="form-control" ng-model="search.category.id">
+          <option value=""></option>
+          <option ng-repeat="book in books | unique: 'category.id'" value={{book.category.id}}>{{book.category.categoryName}}</option>
+        </select><br/>
+       <a href="#!/bookList" class="btn btn-primary btn-lg">Search Book List</a>
+
